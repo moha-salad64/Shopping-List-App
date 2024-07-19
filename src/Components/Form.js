@@ -55,7 +55,7 @@ const Form = ({ addItem, updateItem, editingItem, setEditingItem }) => {
                         value={itemName}
                         onChange={(event) => setItemName(event.target.value)}
                         className="add-item-input "
-                        placeholder="Enter item name"
+                        placeholder="Enter Item Name"
                     />
                 </div>
 
@@ -66,7 +66,7 @@ const Form = ({ addItem, updateItem, editingItem, setEditingItem }) => {
                         value={itemPrice}
                         onChange={(event) => setItemPrice(event.target.value)}
                         className="add-item-input"
-                        placeholder="Enter item price"
+                        placeholder="Enter Item Price"
                     />
                 </div>
 
