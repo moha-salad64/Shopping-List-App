@@ -25,7 +25,7 @@ const Testshop = () => {
         } catch (error) {
             toast.error(error.message);
         } finally {
-            futchItems(user.uid);
+            fetchItems(user.uid);
         }
     };
 
@@ -43,7 +43,7 @@ const Testshop = () => {
         const unsubscribe = onAuthStateChanged(auth, async (user) => {
             if (user) {
                 setUser(user);
-                await futchItems(user.uid);
+                await fetchItems(user.uid);
             } else {
                 setUser(null);
                 setItems([]);
@@ -52,7 +52,7 @@ const Testshop = () => {
         return () => unsubscribe();
     }, []);
 
-    const futchItems = async (userID) => {
+    const fetchItems = async (userID) => {
         try {
             const q = query(collection(db, "ShoppItem"), where("userID", "==", userID));
             const querySnapshot = await getDocs(q);
@@ -80,7 +80,7 @@ const Testshop = () => {
         } catch (error) {
             toast.error('Error removing item!');
         } finally {
-            futchItems(user.uid);
+            fetchItems(user.uid);
         }
     };
 
