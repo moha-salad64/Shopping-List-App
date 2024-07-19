@@ -177,12 +177,12 @@ body {
 }
 
 .nav-sign {
-  display: flex;
-  gap: 1rem;
+  display: flex; 
+   /* gap: 1rem; */
 }
 
 .nav-logn {
-  padding: 0 3rem;
+  padding: 0 1rem;
   text-decoration: none;
   color: #000;
 }
@@ -191,7 +191,7 @@ body {
   display: none;
   cursor: pointer;
   font-size: 1.7rem;
-  padding: 0px 10px 0px 0px;
+  padding: 0 10px 0 0;
 }
 
 /* Responsive styling for mobile */
