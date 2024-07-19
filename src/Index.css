@@ -12,14 +12,12 @@
 /*start Shopping list style-css*/
 
 .container {
-  margin-left: 2rem;
-  margin-right: out;
+  margin-top: 1.6rem;
   padding: 1rem;
-  
 }
 
 .main-container {
-  background-color: #f7fafc;
+  background-color: #f7fafe;
   padding: 1rem;
   border-radius: 0.5rem;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
@@ -28,7 +26,7 @@
 .main-container h1{
   font-size: 1.5rem;
   font-weight: 800;
-  margin-bottom:5px;
+  margin-bottom: 10px;
   text-align:center;
 }
 
@@ -36,28 +34,26 @@
   display: flex;
   flex-direction: column;
 }
-.item-list p{
-  text-align: center; 
-  font-weight: 600;
-}
+
 .item-container{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.6rem; 
+    padding: 1px 5px; 
     margin-bottom: 0.5rem; 
     background-color: white;
     border-radius: 0.5rem; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    border: 1px solid #000;
 }
 
 .item-name{
-  font-size: 0.3rem; 
+  font-size: 0.1rem; 
   font-weight: 600;
 }
 .item-name span{
   display: block;
-  font-size: 1rem; 
+  font-size: 0.9rem; 
   padding: 2px;
 }
 
@@ -78,93 +74,105 @@
 
 /*start Shopping form style-css*/
 
+.input-side{
+    width: 500px; 
+    padding: 0.5rem; 
+    border-radius: 0.25rem;
+}
 
-/*ending shopping style-css*/
+.input-side h2{
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+}
+
 .add-item-box {
-  /* background: #fbc1bb; */
-  display: flex;
-  align-items: center;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.9);
+  border: 1px solid #000;
   border-radius: 10px;
-  padding: 5px;
+  padding: 25px 18px; 
+  display: flex;
+  flex-direction: column;
+  width: 100%;   
+  max-width: 24rem;
+  margin-bottom: 1rem;   
+  /* margin-top: 1rem;      */
+}
+
+
+.add-item-box button{
+  display: flex;    
+  align-item:center;      
+  justify-content: center; 
+  background-color: black; 
+  color: white;           
+  padding: 0.7rem;        
+  border-radius: 0.375rem; 
+  font-weight: bold;
 }
 
 .add-item-input {
-  box-sizing: border-box;
-  border: none;
-  background: transparent;
-  color: #ec645b;
-  width: 20vw;
-  max-width:50rem;
-  height: 30px;
-  padding: 10px 10px;
-  cursor: pointer;
-}
-
-input::placeholder {
-  color:#000;
-}
-input:focus {
-  outline: 0;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-button {
-  background: transparent;
-  border: none;
-  margin: 4px;
+  width: 30vw;
+  max-width:20rem;
+  height: 100%;
+  cursor: pointer; 
+  border: 1px solid #000; 
+  padding: 0.5rem  0.5rem;  
+  border-radius: 0.5rem;
+  margin: 0.2rem; 
   
 }
-button:focus {
+
+.input-part{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.input-part label{
+  font-weight: bold;
+}
+
+
+.input-part input::placeholder {
+  color:#000;
+}
+.input-part input:focus {
   outline: 0;
 }
+/*ending shopping form style-css*/
 
-button:hover {
-  cursor: pointer;
-}
 
-.completed {
-  text-decoration: line-through;
-}
-
+/* start navigation style-css8*/
 
 .container-nav{
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: space-between; 
-  background-color: rgba(196, 177, 177, 0.89);
+  background-color: rgba(250, 190, 200, 0.89);
+  color: #000;
   padding: 2rem 0px;
   margin: 8px;
   width: 98vw;
   border-radius: 10px;
 }
+
 .container-nav h4{
   position: absolute;
   right: 0;
-  left: 25px;
+  left: 20px;
 }
 .counter-nav{
   position: absolute;
-  right: 2px;
-  left: 0;
+  right: 0px;
+  left: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .nav-link{
- 
   padding: 0px 7px;
   text-decoration: none;
   color: #000;
@@ -174,20 +182,14 @@ button:hover {
   right: 3rem;
 }
 .nav-logn{
-  padding: 0px 6px;
+  padding: 0px 5px;
   text-decoration: none;
   color: #000000;
 }
 
+/* ending navigation style-css */
 
-
-.signIn-container{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  height: 35vw;
-}
+/*starting Sign in and sign up style-css */
 
 .signIn-container h1{
   text-align: center;
@@ -197,14 +199,21 @@ button:hover {
   text-decoration: underline wavy ;
 }
 
+.signIn-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 70vw;
+}
 .frm-container{
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 0 4px #000000;
+  box-shadow: 0 0 4px #000 ;
   height: 50vh;
-  width: 40vw;
+  width: 70vw;
   border: 1px solid #000000;
   border-radius:15px 10px;
   padding:10px;
@@ -215,15 +224,15 @@ button:hover {
   margin-top: 10px;
   margin-bottom: 4px; 
   font-size: 18px; 
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .input-sign input{
-  padding: 10px 8px;
-  border: 1px solid #c2c2c2;
+  padding: 8px 8px;
+  border: 2px solid #c2c2c2;
   border-radius: 5px;
-  min-width: 20vw;
-  margin-bottom: 6px;
+  min-width: 45vw;
+  margin-bottom: 0px;
 }
 
 .input-sign input::placeholder{
@@ -236,12 +245,12 @@ button:hover {
 }
 
 .btn-sign button{
-  background-color: #38ee38;
-  color: #000;
+  background-color: blue;
+  color: #fff;
   border: 1px solid #3d3d3d;
-  padding: 3px 6px;
-  margin-top: 0.4rem;
-  width: 10rem;
+  padding: 3px 9px;
+  margin-top: 0.5rem;
+  width: 16rem;
   border-radius: 10px;
 }
 .btn span{
@@ -249,14 +258,15 @@ button:hover {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-weight: 900;
 }
+/*ending sign in and sign up style-css*/
 
 
 
+/* start loading with sign in and sign up*/
 .loader-up{
   display: flex;
   justify-content: center;
-  align-items: center;
-  
+  align-items: center; 
 }
 
 .loader{
@@ -280,7 +290,7 @@ button:hover {
     transform: rotate(360deg);
   }
 }
-
+/*ending loanding sign in and sign up*/
 
 
 

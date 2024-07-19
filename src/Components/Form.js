@@ -46,46 +46,42 @@ const Form = ({ addItem, updateItem, editingItem, setEditingItem }) => {
     };
 
     return (
-        <div className="input-side w-500 ml-9  bg-gray-100 p-4 rounded">
-            <h2 className="text-xl mb-4">{editingItem ? 'EDIT ITEM' : 'ADD ITEM'}</h2>
-            <form className="add-item-box flex flex-col mb-4 mt-4 w-full max-w-sm gap-2" onSubmit={handleSubmit}>
-                <div className="flex flex-col mb-1">
-                    <label className="font-bold">Item Name</label>
+        <div className="input-side">
+            <h2>{editingItem ? 'EDIT ITEM' : 'ADD ITEM'}</h2>
+            <form className="add-item-box" onSubmit={handleSubmit}>
+                <div className="input-part">
+                    <label>Item Name</label>
                     <input
                         value={itemName}
                         onChange={(event) => setItemName(event.target.value)}
-                        className="add-item-input border-2 border-gray-300 px-2 py-1 rounded"
+                        className="add-item-input "
                         placeholder="Enter item name"
                     />
                 </div>
 
-                <div className="flex flex-col mb-1">
-                    <label className="font-bold">Price</label>
+                <div className="input-part">
+                    <label>Price</label>
                     <input
                         type="number"
                         value={itemPrice}
                         onChange={(event) => setItemPrice(event.target.value)}
-                        className="add-item-input border-2 border-gray-300 px-2 py-1 rounded"
+                        className="add-item-input"
                         placeholder="Enter item price"
                     />
                 </div>
 
-                <div className="flex flex-col mb-1">
-                    <label className="font-bold">Item Number</label>
+                <div className="input-part">
+                    <label>Item Number</label>
                     <input
                         type="number"
                         value={itemNumber}
                         onChange={(event) => setItemNumber(event.target.value)}
-                        className="add-item-input border-2 border-gray-300 px-2 py-1 rounded"
-                        placeholder="Enter number of items"
+                        className="add-item-input"
+                        placeholder="Enter N-of-Items"
                     />
                 </div>
-
-                <button
-                    type="submit"
-                    className="flex justify-center bg-black text-white p-2 rounded-md"
-                >
-                    {editingItem ? <FaPencilAlt className="mr-3 flex align-middle" /> : <FaPlus className="mr-3 flex align-middle" />}
+                <button type="submit">
+                    {/* {editingItem ? <FaPencilAlt className="mr-3 flex align-middle" /> : <FaPlus/>} */}
                     {editingItem ? `EDIT ITEM` : `ADD ITEM`}
                 </button>
             </form>
