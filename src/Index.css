@@ -34,11 +34,6 @@ body {
   flex-direction: column;
 }
 
-.item-list p {
-  text-align: center;
-  font-weight: 800;
-}
-
 .item-container {
   display: flex;
   justify-content: space-between;
