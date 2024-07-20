@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 const  Login = () => {
 
   //create fields state
-  const [email , setEmial] = useState("");
+  const [email , setEmail] = useState("");
   const [password , setPassword] = useState("");
   const navigate = useNavigate();
 
@@ -37,7 +37,7 @@ const  Login = () => {
         // console.log("invalid email || password");
       }
       finally{
-        setEmial("")
+        setEmail("")
         setPassword("");
         setLoading(false);
       }
@@ -51,7 +51,7 @@ const  Login = () => {
             <label>Email</label>
             <input type='text' placeholder='username'
             value={email}
-            onChange={(e) => setEmial(e.target.value)}/>
+            onChange={(e) => setEmail(e.target.value)}/>
           </div>
           <div className='input-sign'>
             <label>Password</label>

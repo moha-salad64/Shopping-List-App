@@ -10,10 +10,10 @@ import Loader from '../Components/Loader';
 function SingUp() {
 
   //create form fields states
-  const [email, setEmial] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('')
- 
-  const Navbar = useNavigate();
+
+  const navigate = useNavigate();
 
   //create Loading
   const [loading, setLoading] = useState(false);
@@ -29,18 +29,18 @@ function SingUp() {
     try {
       await createUserWithEmailAndPassword(auth, email, password)
       toast.success("User creation Successfully")
-      Navbar("/");
+      navigate("/");
       // console.log("user is registered!");
 
     } catch (error) {
       toast.error('something want wrong!');
       // console.log('this user already exist');
-    }finally{
-      setEmial("")
+    } finally {
+      setEmail("")
       setPassword("");
       setLoading(false);
     }
-    
+
   }
 
 
@@ -52,7 +52,7 @@ function SingUp() {
           <label>Email</label>
           <input type='text' placeholder='username'
             value={email}
-            onChange={(e) => setEmial(e.target.value)} />
+            onChange={(e) => setEmail(e.target.value)} />
         </div>
         <div className='input-sign'>
           <label>Password</label>
