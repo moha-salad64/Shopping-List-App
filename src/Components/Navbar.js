@@ -1,49 +1,46 @@
-import { signOut } from 'firebase/auth';
-import React, { useState } from 'react';
+// components/Navbar.js
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
+import useAuth from '../Hooks/useAuthenticate';
 import { auth } from '../firebase';
-import CurrentUser from '../Hooks/UserCurrent';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
-function Navbar() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+const Navbar = () => {
+  const currentUser = useAuth();
   const navigate = useNavigate();
-  const currentUser = CurrentUser();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
   const handleLogout = async () => {
     await signOut(auth);
-    navigate('/Login');
-  };
+    navigate('/login');
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
+    // console.error('Error signing out:');
   };
 
   return (
     <nav className="container-nav">
       <h4>Shopping-List-App</h4>
+
+      {currentUser ? (
       <div className={`counter-nav ${isMobileMenuOpen ? 'active' : ''}`}>
         <Link to="/" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
-        <Link to="/About" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
-        <Link to="/Contact" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
-      </div>
-      <div className="nav-sign">
-        {
-          currentUser ? (
-            <Link onClick={handleLogout} className="nav-logn">LogOut</Link>
-          ) : (
-            <>
-              <Link to="/SignUp" className="nav-logn" onClick={() => setIsMobileMenuOpen(false)}>SignUp</Link>
-              <Link to="/Login" className="nav-logn" onClick={() => setIsMobileMenuOpen(false)}>Login</Link>
-            </>
-          )
-        }
-      </div>
-      <div className="menu-icon" onClick={toggleMobileMenu}>
+        <Link to="/about" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
+        <Link to="/contact" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
+          <Link onClick={handleLogout} className="nav-logn">LogOut</Link>
+        </div>
+        ) : (
+         
+          <div className="nav-sign">
+            <Link to="/sign-up" className="nav-logn" onClick={() => setIsMobileMenuOpen(false)}>SignUp</Link>
+            <Link to="/login" className="nav-logn" onClick={() => setIsMobileMenuOpen(false)}>Login</Link>   
+          </div>
+        )}
+      <div className="menu-icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
         {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
       </div>
     </nav>
   );
-}
+};
 
 export default Navbar;

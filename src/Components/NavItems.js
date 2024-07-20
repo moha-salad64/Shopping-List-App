@@ -1,27 +1,27 @@
-import React, { useEffect, useState } from 'react'
-import { BrowserRouter , Route , Router, Routes } from 'react-router-dom'
-import Navbar from './Navbar'
-import Home from '../Pages/Home'
-import About from '../Pages/About'
-import Contact from '../Pages/Contact'
-import SingUp from '../Pages/SingUp'
-import Login from '../Pages/Login'
-import ProtectedRoute from './ProtectedRoute'
+// App.js
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './Navbar';
+import Home from '../Pages/Home';
+import About from '../Pages/About';
+import Contact from '../Pages/Contact';
+import SignUp from '../Pages/SingUp';
+import Login from '../Pages/Login';
+import ProtectedRoute from './ProtectedRoute';
 
-function NavItems() {
-  return (
-         <BrowserRouter>
-         <Navbar/>
-          <Routes> 
-              {/* <Route path='/' element={ <ProtectedRoute> <Home/> </ProtectedRoute>}/> */}
-              <Route path='/' element={<Home/>}/>
-              <Route path='/About' element={<About/> }/>
-              <Route path='/Contact' element={<Contact/>}/>
-            <Route path='/SignUp' element={<SingUp/>}/> 
-              <Route path='/Login' element={<Login/>}/>
-          </Routes>
-         </BrowserRouter>
-  )
-}
+const App = () => {
+    return (
+        <Router>
+            <Navbar />
+            <Routes>
+                <Route path="/login" element={<Login />} />
+                <Route path="/sign-up" element={<SignUp />} />
+                <Route path="/" element={<ProtectedRoute element={Home} />} />
+                <Route path="/about" element={<ProtectedRoute element={About} />} />
+                <Route path="/contact" element={<ProtectedRoute element={Contact} />} />
+            </Routes>
+        </Router>
+    );
+};
 
-export default NavItems
+export default App;

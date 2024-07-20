@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { auth, db } from '../firebase';
 import { addDoc, collection, deleteDoc, doc, getDocs, query, updateDoc, where } from 'firebase/firestore';
-import Form from './Form';
-import FormList from './FormList';
+import ShoppingForm from './ShoppingForm'
+import ShoppingList from './ShoppingList';
 import { toast } from 'react-toastify';
 import { onAuthStateChanged } from 'firebase/auth';
 
@@ -12,13 +12,18 @@ const Testshop = () => {
     const [editingItem, setEditingItem] = useState(null);
 
     const addItem = async (item) => {
+        // if (item.number <= 0) {
+        //     toast.error('Item number must be greater than 0!');
+        //     return;
+        // }
         try {
-            await addDoc(collection(db, "ShoppItem"), {
+            const ItemStore = await addDoc(collection(db, "ShoppItem"), {
                 ...item,
                 userID: user.uid,
             });
             setItems([...items, {
                 ...item,
+                id: ItemStore,
                 userID: user.uid
             }]);
             toast.success('New Item Inserted!');
@@ -27,6 +32,7 @@ const Testshop = () => {
         } finally {
             fetchItems(user.uid);
         }
+
     };
 
     const updateItem = async (itemId, updatedData) => {
@@ -86,13 +92,14 @@ const Testshop = () => {
 
     return (
         <div className='app-background'>
-            <Form
+            <ShoppingForm
                 addItem={addItem}
                 updateItem={updateItem}
                 editingItem={editingItem}
                 setEditingItem={setEditingItem}
             />
-            <FormList
+            
+            <ShoppingList
                 items={items}
                 handleRemoveItem={handleRemoveItem}
                 handleUpdateItem={updateItem}

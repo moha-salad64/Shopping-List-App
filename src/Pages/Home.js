@@ -1,16 +1,11 @@
 import React from 'react';
-import ShoppingList from '../Components/ShoppingList'
-// import ShoppingAll from '../Components/ShoppingAll';
-import Testshop from '../Components/Testshop';
-import Form  from '../Components/Form';
+import Testshop from '../Components/ShoppingTasks';
+
 
 function Home({item}) {
   return (
     <div>  
-      {/* <Form/> */}
       <Testshop/>
-       {/* <ShoppingList/> */}
-      {/* <ShoppingAll/> */}
     </div>
   )
 }

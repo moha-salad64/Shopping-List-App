@@ -1,40 +1,92 @@
-import React, { useState } from 'react'
-import { FaPlus, FaMinus, FaTrash } from 'react-icons/fa';
+import React, { useState, useEffect } from 'react';
+import { FaPlus, FaPencilAlt } from 'react-icons/fa';
 import { toast } from 'react-toastify';
-import Loader from './Loader';
 
-function ShoppingForm({Additem}) {
-    const [inputValue , setInputValue] = useState("");
-    const [loading , setLoading] = useState(false);
+const Form = ({ addItem, updateItem, editingItem, setEditingItem }) => {
+    const [itemName, setItemName] = useState('');
+    const [itemPrice, setItemPrice] = useState('');
+    const [itemNumber, setItemNumber] = useState('');
 
- //function handle
- const handleSubmit = async (event) =>{
-    event.preventDefault();
-    if(!inputValue){
-        toast.error("empty input!");
-        return;
-    }
-    setLoading(true);
-    await Additem(inputValue);
-    setLoading(false);
-    setInputValue("");
- }
+    useEffect(() => {
+        if (editingItem) {
+            setItemName(editingItem.name);
+            setItemPrice(editingItem.price);
+            setItemNumber(editingItem.number);
+        }
+    }, [editingItem]);
 
+    const handleAddOrUpdateButton = () => {
+        if (!itemName || !itemPrice || !itemNumber || itemNumber <= 0) {
+            toast.error("Please fill  all Input! && check item number greater than 0!");
+            return;
+        }
+        if (editingItem) {
+            updateItem(editingItem.id, {
+                name: itemName,
+                price: itemPrice,
+                number: itemNumber
+            });
+            setEditingItem(null);
+        } else {
+            addItem({
+                name: itemName,
+                price: itemPrice,
+                number: itemNumber
+            });
+        }
+        setItemName('');
+        setItemPrice('');
+        setItemNumber('');
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        handleAddOrUpdateButton();
+    };
 
     return (
-        <form className="flex flex-col mb-4 mt-4 w-full max-w-sm gap-2">
-            <h1 className="text-2xl font-bold" >Shopping List</h1>
-            <div className='formContainer'>
-                <input type='text'
-                 className="p-2 border-2 border-gray-400 rounded-md "
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                placeholder='add-item'/>
-            </div>
-            <button type='submit' className="flex justify-center bg-black text-white p-2 rounded-md">
-                {loading ? <Loader/> : <FaPlus/> } </button>
-        </form>
-    )
-}
+        <div className="input-side">
+            <h2>{editingItem ? 'EDIT ITEM' : 'ADD ITEM'}</h2>
+            <form className="add-item-box" onSubmit={handleSubmit}>
+                <div className="input-part">
+                    <label>Item Name</label>
+                    <input
+                        value={itemName}
+                        onChange={(event) => setItemName(event.target.value)}
+                        className="add-item-input "
+                        placeholder="Enter Item Name"
+                    />
+                </div>
 
-export default ShoppingForm
+                <div className="input-part">
+                    <label>Price</label>
+                    <input
+                        type="number"
+                        value={itemPrice}
+                        onChange={(event) => setItemPrice(event.target.value)}
+                        className="add-item-input"
+                        placeholder="Enter Item Price"
+                    />
+                </div>
+
+                <div className="input-part">
+                    <label>Item Number</label>
+                    <input
+                        type="number"
+                        value={itemNumber}
+                        onChange={(event) => setItemNumber(event.target.value)}
+                        className="add-item-input"
+                        placeholder="Enter N-of-Items"
+                        
+                    />
+                </div>
+                <button type="submit">
+                    {/* {editingItem ? <FaPencilAlt className="mr-3 flex align-middle" /> : <FaPlus/>} */}
+                    {editingItem ? `EDIT ITEM` : `ADD ITEM`}
+                </button>
+            </form>
+        </div>
+    );
+};
+
+export default Form;

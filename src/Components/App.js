@@ -1,11 +1,25 @@
-import { BrowserRouter , Route , Routes } from 'react-router-dom'
-import NavItems from './NavItems'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './Navbar';
+import Home from '../Pages/Home';
+import About from '../Pages/About';
+import Contact from '../Pages/Contact';
+import SignUp from '../Pages/SingUp';
+import Login from '../Pages/Login';
+import ProtectedRoute from './ProtectedRoute';
+
 
 function App() {
   return(
-    <div>
-    <NavItems/>
-    </div>
+    <Router>
+    <Navbar />
+            <Routes>
+                <Route path="/login" element={<Login />} />
+                <Route path="/sign-up" element={<SignUp />} />
+                <Route path="/" element={<Home/>}/>
+                <Route path="/about" element={<About/>}/>
+                <Route path="/contact" element={<Contact/>} />
+            </Routes>
+        </Router>
   )
 }
 
