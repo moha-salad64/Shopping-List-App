@@ -1,11 +1,11 @@
 import React from 'react';
-import Testshop from '../Components/ShoppingTasks';
+import ShoppingTasks from '../Components/ShoppingTasks';
 
 
 function Home({item}) {
   return (
     <div>  
-      <Testshop/>
+      <ShoppingTasks/>
     </div>
   )
 }

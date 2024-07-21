@@ -24,7 +24,6 @@ const Navbar = () => {
       <div className={`counter-nav ${isMobileMenuOpen ? 'active' : ''}`}>
         <Link to="/" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
         <Link to="/about" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
-        {/* <Link to="/contact" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link> */}
       </div>
      
       <>
