@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { FaPlus, FaPencilAlt } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 
 const Form = ({ addItem, updateItem, editingItem, setEditingItem }) => {
@@ -81,7 +80,6 @@ const Form = ({ addItem, updateItem, editingItem, setEditingItem }) => {
                     />
                 </div>
                 <button type="submit">
-                    {/* {editingItem ? <FaPencilAlt className="mr-3 flex align-middle" /> : <FaPlus/>} */}
                     {editingItem ? `EDIT ITEM` : `ADD ITEM`}
                 </button>
             </form>
