@@ -24,18 +24,18 @@ const Navbar = () => {
       <div className={`counter-nav ${isMobileMenuOpen ? 'active' : ''}`}>
         <Link to="/" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
         <Link to="/about" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
-        <Link to="/contact" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
+        {/* <Link to="/contact" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link> */}
       </div>
-      <div className="nav-sign">
+     
+      <>
         {currentUser ? (
           <Link onClick={handleLogout} className="nav-logn">LogOut</Link>
         ) : (
-          <>
+          <div className="nav-sign">
             <Link to="/sign-up" className="nav-logn" onClick={() => setIsMobileMenuOpen(false)}>SignUp</Link>
             <Link to="/login" className="nav-logn" onClick={() => setIsMobileMenuOpen(false)}>Login</Link>
-          </>
-        )}
-      </div>
+          </div> )}
+      </>
       <div className="menu-icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
         {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
       </div>

@@ -23,6 +23,7 @@ const  Login = () => {
     event.preventDefault();
     
     if(!email && !password)
+      // toast.error('Input fields are empty!')
       return;
 
       //start loading

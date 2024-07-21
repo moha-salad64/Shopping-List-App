@@ -21,7 +21,8 @@ function SingUp() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (!email && !password)
+    if (!email || !password)
+      // toast.error('Input fields are empty!');
       return;
 
     //start Loading
