@@ -31,11 +31,9 @@ function SingUp() {
       await createUserWithEmailAndPassword(auth, email, password)
       toast.success("User creation Successfully")
       navigate("/");
-      // console.log("user is registered!");
 
     } catch (error) {
       toast.error('something want wrong!');
-      // console.log('this user already exist');
     } finally {
       setEmail("")
       setPassword("");
